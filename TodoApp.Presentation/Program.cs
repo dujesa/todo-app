@@ -1,2 +1,5 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, Ronaldinho!");
+﻿using TodoApp.Presentation.Extensions;
+using TodoApp.Presentation.Factories;
+
+var mainMenuActions = MainMenuFactory.CreateActions();
+mainMenuActions.PrintActionsAndOpen();
