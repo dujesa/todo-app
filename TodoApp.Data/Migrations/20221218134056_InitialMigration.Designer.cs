@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using TodoApp.Data.Entities;
@@ -11,9 +12,10 @@ using TodoApp.Data.Entities;
 namespace TodoApp.Data.Migrations
 {
     [DbContext(typeof(TodoAppDbContext))]
-    partial class TodoAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221218134056_InitialMigration")]
+    partial class InitialMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -42,17 +44,12 @@ namespace TodoApp.Data.Migrations
                         new
                         {
                             Id = 1,
-                            Name = "devovi"
+                            Name = "dumpovci"
                         },
                         new
                         {
                             Id = 2,
-                            Name = "internship-voditelji"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "days-organizatori"
+                            Name = "pripravnici"
                         });
                 });
 
@@ -78,118 +75,23 @@ namespace TodoApp.Data.Migrations
                         },
                         new
                         {
+                            UserId = 2,
+                            GroupId = 1
+                        },
+                        new
+                        {
                             UserId = 3,
                             GroupId = 1
                         },
                         new
                         {
-                            UserId = 4,
-                            GroupId = 1
-                        },
-                        new
-                        {
-                            UserId = 7,
-                            GroupId = 1
-                        },
-                        new
-                        {
-                            UserId = 8,
-                            GroupId = 1
-                        },
-                        new
-                        {
-                            UserId = 9,
-                            GroupId = 1
-                        },
-                        new
-                        {
-                            UserId = 10,
-                            GroupId = 1
-                        },
-                        new
-                        {
                             UserId = 1,
                             GroupId = 2
-                        },
-                        new
-                        {
-                            UserId = 4,
-                            GroupId = 2
-                        },
-                        new
-                        {
-                            UserId = 5,
-                            GroupId = 2
-                        },
-                        new
-                        {
-                            UserId = 6,
-                            GroupId = 2
-                        },
-                        new
-                        {
-                            UserId = 13,
-                            GroupId = 2
-                        },
-                        new
-                        {
-                            UserId = 1,
-                            GroupId = 3
                         },
                         new
                         {
                             UserId = 2,
-                            GroupId = 3
-                        },
-                        new
-                        {
-                            UserId = 3,
-                            GroupId = 3
-                        },
-                        new
-                        {
-                            UserId = 4,
-                            GroupId = 3
-                        },
-                        new
-                        {
-                            UserId = 5,
-                            GroupId = 3
-                        },
-                        new
-                        {
-                            UserId = 6,
-                            GroupId = 3
-                        },
-                        new
-                        {
-                            UserId = 7,
-                            GroupId = 3
-                        },
-                        new
-                        {
-                            UserId = 8,
-                            GroupId = 3
-                        },
-                        new
-                        {
-                            UserId = 9,
-                            GroupId = 3
-                        },
-                        new
-                        {
-                            UserId = 10,
-                            GroupId = 3
-                        },
-                        new
-                        {
-                            UserId = 11,
-                            GroupId = 3
-                        },
-                        new
-                        {
-                            UserId = 12,
-                            GroupId = 3
+                            GroupId = 2
                         });
                 });
 
@@ -231,7 +133,7 @@ namespace TodoApp.Data.Migrations
                             ListId = 1,
                             Priority = 1,
                             Status = 0,
-                            Title = "Days app implementacija"
+                            Title = "Organizacija daysa"
                         },
                         new
                         {
@@ -240,52 +142,34 @@ namespace TodoApp.Data.Migrations
                             ListId = 1,
                             Priority = 1,
                             Status = 0,
-                            Title = "Days app CI CD"
+                            Title = "Organizacija Internshipa"
                         },
                         new
                         {
                             Id = 3,
                             DueDate = new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
-                            ListId = 3,
+                            ListId = 1,
                             Priority = 3,
                             Status = 0,
-                            Title = "Days youtube videi"
+                            Title = "Novi youtube videa"
                         },
                         new
                         {
                             Id = 4,
-                            DueDate = new DateTime(2023, 5, 5, 0, 0, 0, 0, DateTimeKind.Utc),
-                            ListId = 3,
-                            Priority = 3,
+                            DueDate = new DateTime(2023, 5, 15, 0, 0, 0, 0, DateTimeKind.Utc),
+                            ListId = 2,
+                            Priority = 1,
                             Status = 0,
-                            Title = "Days speakeri"
+                            Title = "Organizacija ciklusa"
                         },
                         new
                         {
                             Id = 5,
-                            DueDate = new DateTime(2023, 4, 2, 0, 0, 0, 0, DateTimeKind.Utc),
-                            ListId = 3,
-                            Priority = 3,
-                            Status = 0,
-                            Title = "Days sponzori"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            DueDate = new DateTime(2023, 5, 15, 0, 0, 0, 0, DateTimeKind.Utc),
-                            ListId = 2,
-                            Priority = 10,
-                            Status = 0,
-                            Title = "Organizacija Internship Teambuildinga"
-                        },
-                        new
-                        {
-                            Id = 7,
                             DueDate = new DateTime(2023, 1, 5, 0, 0, 0, 0, DateTimeKind.Utc),
-                            ListId = 2,
+                            ListId = 3,
                             Priority = 1,
                             Status = 0,
-                            Title = "IC organizacija"
+                            Title = "Domaci rad"
                         });
                 });
 
@@ -315,19 +199,19 @@ namespace TodoApp.Data.Migrations
                         {
                             Id = 1,
                             GroupId = 1,
-                            Name = "#dev-tasks"
+                            Name = "Standardni projekti"
                         },
                         new
                         {
                             Id = 2,
-                            GroupId = 2,
-                            Name = "#internship-tasks"
+                            GroupId = 1,
+                            Name = "Vremenski neodredeni projekti"
                         },
                         new
                         {
                             Id = 3,
-                            GroupId = 1,
-                            Name = "#days-tasks"
+                            GroupId = 2,
+                            Name = "Tjedni zadaci"
                         });
                 });
 
@@ -375,54 +259,6 @@ namespace TodoApp.Data.Migrations
                             Id = 3,
                             FirstName = "Matija",
                             LastName = "Luketin"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            FirstName = "Duje",
-                            LastName = "Saric"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            FirstName = "Marija",
-                            LastName = "Sustic"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            FirstName = "Lucia",
-                            LastName = "Vukorepa"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            FirstName = "Alex",
-                            LastName = "Amanzi"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            FirstName = "Frane",
-                            LastName = "Doljanin"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            FirstName = "Jere",
-                            LastName = "Mandusic"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            FirstName = "Ivo",
-                            LastName = "Jovanovic"
-                        },
-                        new
-                        {
-                            Id = 13,
-                            FirstName = "Gabriela",
-                            LastName = "Bonic"
                         });
                 });
 
@@ -438,16 +274,9 @@ namespace TodoApp.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 11,
+                            Id = 4,
                             FirstName = "Ante",
                             LastName = "Vuletic",
-                            SubscriptionEnd = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 12,
-                            FirstName = "Kreso",
-                            LastName = "Condic",
                             SubscriptionEnd = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });

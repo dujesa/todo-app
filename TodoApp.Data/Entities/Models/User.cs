@@ -8,9 +8,9 @@ public class User
         LastName = lastName;
     }
 
-    public Guid Id { get; set; }
+    public int Id { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }
 
-    public ICollection<Group> Groups { get; set; } = new List<Group>();
+    public ICollection<GroupUser> GroupUsers { get; set; } = new List<GroupUser>();
 }

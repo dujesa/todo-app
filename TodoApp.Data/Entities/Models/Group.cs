@@ -6,9 +6,9 @@ public class Group
         Name = name;
     }
 
-    public Guid Id { get; set; }
+    public int Id { get; set; }
     public string Name { get; set; }
 
-    public ICollection<User> Users { get; set; } = new List<User>();
+    public ICollection<GroupUser> GroupUsers { get; set; } = new List<GroupUser>();
     public ICollection<List> Lists { get;} = new List<List>();
 }

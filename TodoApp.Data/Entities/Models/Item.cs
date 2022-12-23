@@ -9,12 +9,12 @@ public class Item
         Title = title;
     }
 
-    public Guid Id { get; set; }
+    public int Id { get; set; }
     public string Title { get; set; }
     public int Priority { get; set; }
     public Status Status { get; set; }
     public DateTime DueDate { get; set; }
 
-    public Guid ListId { get; set; }
+    public int ListId { get; set; }
     public List? List { get; set; }
 }

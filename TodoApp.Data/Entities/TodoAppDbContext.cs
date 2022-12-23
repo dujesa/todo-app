@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using TodoApp.Data.Entities.Models;
+using TodoApp.Data.Seeds;
 
 namespace TodoApp.Data.Entities;
 
@@ -13,14 +14,26 @@ public class TodoAppDbContext : DbContext
 
     public DbSet<Group> Groups => Set<Group>();
     public DbSet<User> Users => Set<User>();
+    public DbSet<Customer> Customers => Set<Customer>();
+    public DbSet<GroupUser> GroupUsers => Set<GroupUser>();
+
     public DbSet<Item> Items => Set<Item>();
     public DbSet<List> Lists => Set<List>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Group>()
-            .HasMany(g => g.Users)
-            .WithMany(u => u.Groups);
+        modelBuilder.Entity<GroupUser>()
+            .HasKey(gu => new { gu.UserId, gu.GroupId });
+
+        modelBuilder.Entity<GroupUser>()
+            .HasOne(g => g.User)
+            .WithMany(u => u.GroupUsers)
+            .HasForeignKey(gu => gu.UserId);
+
+        modelBuilder.Entity<GroupUser>()
+            .HasOne(g => g.Group)
+            .WithMany(g => g.GroupUsers)
+            .HasForeignKey(gu => gu.GroupId);
 
         modelBuilder.Entity<List>()
             .HasOne(l => l.Group)
@@ -32,7 +45,12 @@ public class TodoAppDbContext : DbContext
             .WithMany(l => l.Items)
             .OnDelete(DeleteBehavior.Cascade);
 
-        //DatabaseSeeder.Seed(modelBuilder);
+        modelBuilder.Entity<User>()
+            .HasDiscriminator<string>("user_type")
+            .HasValue<User>("user")
+            .HasValue<Customer>("customer");
+
+        DatabaseSeeder.Seed(modelBuilder);
         base.OnModelCreating(modelBuilder);
     }
 }
